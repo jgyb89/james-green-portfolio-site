@@ -2,8 +2,8 @@ import styles from './HeroStyles.module.css';
 import heroImg from '../../assets/james-green-front-end-developer.webp';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
-import webLight from '../../assets/web-light.svg';
-import webDark from '../../assets/web-dark.svg';
+import behanceLight from '../../assets/behance-light.svg';
+import behanceDark from '../../assets/behance-dark.svg';
 import githubLight from '../../assets/github-light.svg';
 import githubDark from '../../assets/github-dark.svg';
 import linkedinLight from '../../assets/linkedin-light.svg';
@@ -15,7 +15,7 @@ function Hero() {
   const { theme, toggleTheme } = useTheme();
 
   const themeIcon = theme === 'light' ? sun : moon;
-  const twitterIcon = theme === 'light' ? webLight : webDark;
+  const behanceIcon = theme === 'light' ? behanceLight : behanceDark;
   const githubIcon = theme === 'light' ? githubLight : githubDark;
   const linkedinIcon = theme === 'light' ? linkedinLight : linkedinDark;
 
@@ -42,8 +42,8 @@ function Hero() {
         </h1>
         <h2>Frontend Developer</h2>
         <span>
-          <a href="https://twitter.com/" target="_blank">
-            <img src={twitterIcon} alt="Twitter icon" />
+          <a href="https://www.behance.net/jamesgreen39" target="_blank">
+            <img src={behanceIcon} alt="Behance icon" />
           </a>
           <a href="https://github.com/jgyb89" target="_blank">
             <img src={githubIcon} alt="Github icon" />
@@ -57,7 +57,7 @@ function Hero() {
           businesses.
         </p>
         <a href={CV} download>
-          <button className="hover">Resume</button>
+          <button className="hover">Download CV</button>
         </a>
       </div>
     </section>
