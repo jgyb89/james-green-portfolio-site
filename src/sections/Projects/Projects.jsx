@@ -1,8 +1,7 @@
 import styles from './ProjectsStyles.module.css';
-import viberr from '../../assets/viberr.png'; 
-import freshBurger from '../../assets/fresh-burger.png'
-import fitLift from '../../assets/fitlift.png'
-import hipsster from '../../assets/hipsster.png'
+import xora from '../../assets/xora-screen.jpg'; 
+import brainwave from '../../assets/brainwave-screen.jpg'
+import hoobank from '../../assets/hoobank-screen.jpg'
 import ProjectCard from '../../common/ProjectCard';
 
 function Projects() {
@@ -11,28 +10,28 @@ function Projects() {
     <h1 className="sectionTitle">Projects</h1>
     <div className={styles.projectsContainer}>
         <ProjectCard 
-        src={viberr} 
-        link={''}
-        h3="Project 1"
-        p="Project 1 desc"
+        src={xora} 
+        link={'https://xora-sass-app.netlify.app/'}
+        h3="Xora"
+        p="SaaS Landing Page"
+        target="_blank"
+        rel="noopener noreferrer"
         />
         <ProjectCard 
-        src={freshBurger} 
-        link={''}
-        h3="Project 2"
-        p="Project 2 desc"
+        src={brainwave} 
+        link={'https://brainwavejg.netlify.app/'}
+        h3="Brainwave"
+        p="Open AI chat app"
+        target="_blank"
+        rel="noopener noreferrer"
         />
         <ProjectCard 
-        src={fitLift} 
-        link={''}
-        h3="Project 3"
-        p="Project 3 desc"
-        />
-        <ProjectCard 
-        src={hipsster} 
-        link={''}
-        h3="Project 4"
-        p="Project 4 desc"
+        src={hoobank} 
+        link={'https://hoobank-jg.netlify.app/'}
+        h3="Hoobank"
+        p="Banking App"
+        target="_blank"
+        rel="noopener noreferrer"
         />
     </div>
     </section>
