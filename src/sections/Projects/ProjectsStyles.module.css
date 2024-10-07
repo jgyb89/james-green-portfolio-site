@@ -8,13 +8,19 @@
         align-self: center;
         background-color: var(--project-card-bg);
         border-radius: 20px;
+        border: #888 1px solid;
+        margin-bottom: 10px;
+
     }
+
+    
 
     a {
         width: fit-content;
         text-decoration: none;
         color: #222;
         transition: transform 200ms ease-in-out;
+       
     }
 
     a:hover {
@@ -33,6 +39,8 @@
     .projectsContainer{
        display: grid;
        grid-template-columns: 1fr;
+       margin-bottom: 20px;
+       
 
         img {
         max-width: 750px;
@@ -41,6 +49,8 @@
         align-self: center;
         background-color: var(--project-card-bg);
         border-radius: 20px;
+        
+
     }
     }
 
