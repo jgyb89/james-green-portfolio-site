@@ -16,7 +16,7 @@ function Projects() {
         src={kotis} 
         link={'https://go.kotisdesign.com/'}
         h3="Kotis Design"
-        p="Swag fulfillment platform"
+        p="Swag Fulfillment Platform"
         target="_blank"
         rel="noopener noreferrer nofollow"
         />
