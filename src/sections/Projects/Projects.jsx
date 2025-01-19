@@ -38,8 +38,9 @@ function Projects() {
                         <p>Redux Toolkit</p>
                         <p>Hooks and Function Components</p>
                         <p>Organized Git version control</p>
-                        <p>comprehensive documentation</p>
+                        <p>Comprehensive documentation</p>
                         <p>Structured workflows</p>
+                        <p>Nucamp Front End Development Course</p>
                     </div>
                 </div>
                 <div className={styles.projectsReact}>
