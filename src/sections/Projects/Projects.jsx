@@ -30,17 +30,15 @@ function Projects() {
                 <div>
                     <div className={styles.toolIcon}>
                         <img src={reactIcon} />
-                        <img src={jsIcon} />
                         <img src={bootstrap} />
                     </div>
                     <h2>React Redux App</h2>
                     <div className={styles.list}>
                         <p>Redux Toolkit</p>
                         <p>Hooks and Function Components</p>
-                        <p>Organized Git version control</p>
-                        <p>Comprehensive documentation</p>
-                        <p>Structured workflows</p>
-                        <p>Nucamp Front End Development Course</p>
+                        <p>Organized Git Version Control</p>
+                        <p>Login Function</p>
+                        <p>Comment Form with Validation</p>
                     </div>
                 </div>
                 <div className={styles.projectsReact}>
