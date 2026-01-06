@@ -1,136 +1,146 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
-    a {
-        width: fit-content;
-        text-decoration: none;
-        color: #222;
-        transition: transform 200ms ease-in-out;
-        margin-top: 30px;
-    }
+  a {
+    width: fit-content;
+    text-decoration: none;
+    color: #222;
+    transition: transform 200ms ease-in-out;
+    margin-top: 30px;
+  }
 
-    a:hover {
-        transform: scale(1.05);
-    }
+  a:hover {
+    transform: scale(1.05);
+  }
 
-    h3 {
-        margin: 10px 0px;
-    }
+  h3 {
+    margin: 10px 0px;
+  }
 
-    hr {
-        width: 200px;
-        height: 1px;
-        border: none;
-        background-color: var(--text-color);
-        align-self: center;
-        margin: 100px 0px;
-    }
-
+  hr {
+    width: 200px;
+    height: 1px;
+    border: none;
+    background-color: var(--text-color);
+    align-self: center;
+    margin: 100px 0px;
+  }
 }
 
 .projectMain {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
 
-    .projectsReact {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-
-        img {
-            max-width: 600px;
-            background-color: var(--project-card-bg);
-            border-radius: 10px;
-            border: #888 1px solid;
-            margin-bottom: 20px;
-        }
-    }
-
-    .toolIcon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin: 10px;
-
-        img {
-            width: 20px;
-        }
-
-    }
-
-    .list {
-        line-height: 2.5;
-        margin-top: 30px;
-    }
-}
-
-.projectsContainer {
+  .projectsReact {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 30px;
 
     img {
-        max-width: 400px;
-        align-self: center;
-        background-color: var(--project-card-bg);
-        border-radius: 10px;
-        border: #888 1px solid;
-        margin-bottom: 20px;
+      max-width: 600px;
+      background-color: var(--project-card-bg);
+      border-radius: 10px;
+      border: #888 1px solid;
+      margin-bottom: 20px;
     }
+  }
+
+  .toolIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+
+    img {
+      width: 20px;
+    }
+  }
+
+  .openNew {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+
+    img {
+      width: 18px;
+    }
+  }
+
+  .openNew:hover {
+    opacity: 0.6;
+  }
+
+  .list {
+    line-height: 2.5;
+    margin-top: 30px;
+  }
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  img {
+    max-width: 400px;
+    align-self: center;
+    background-color: var(--project-card-bg);
+    border-radius: 10px;
+    border: #888 1px solid;
+    margin-bottom: 20px;
+  }
 }
 
 @media (width < 1420px) {
-    .projectsContainer {
-        display: grid;
-        grid-template-columns: 1fr;
+  .projectsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
 
-
-        img {
-            max-width: 750px;
-            width: 100%;
-            margin: auto;
-            align-self: center;
-            background-color: var(--project-card-bg);
-            border-radius: 20px;
-        }
+    img {
+      max-width: 750px;
+      width: 100%;
+      margin: auto;
+      align-self: center;
+      background-color: var(--project-card-bg);
+      border-radius: 20px;
     }
+  }
 
-    .projectMain {
-        flex-direction: column-reverse;
-        gap: 30px;
-        /* Adjust gap for mobile */
+  .projectMain {
+    flex-direction: column-reverse;
+    gap: 30px;
+    /* Adjust gap for mobile */
 
-        .projectsReact {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-    
-            img {
-                max-width: 750px;
-                width: 100%;
-                background-color: var(--project-card-bg);
-                border-radius: 20px;
-                border: #888 1px solid;
-                margin-bottom: 20px;
-            }
-        }
+    .projectsReact {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
 
-
+      img {
+        max-width: 750px;
+        width: 100%;
+        background-color: var(--project-card-bg);
+        border-radius: 20px;
+        border: #888 1px solid;
+        margin-bottom: 20px;
+      }
     }
-
+  }
 }
 
 @media (width >=800px) {
-    .projectsContainer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 50px 30px;
-    }
+  .projectsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 50px 30px;
+  }
 }
