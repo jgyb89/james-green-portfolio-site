@@ -1,5 +1,4 @@
 /* image imports */
-
 import styles from "./ProjectsStyles.module.css";
 import xora from "../../assets/xora-screen.jpg";
 import brainwave from "../../assets/brainwave-screen.jpg";
@@ -155,7 +154,7 @@ function Projects() {
           rel="noopener noreferrer"
         />
       </div>
-       <hr />
+      <hr />
       <h1 className="sectionTitle">Nucamp React Website</h1>
       <div className={styles.projectMain}>
         <div>
