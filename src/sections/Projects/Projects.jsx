@@ -122,7 +122,7 @@ function Projects() {
           src={jag}
           link={"https://jagclamp.com/"}
           h3="JagClamp"
-          p="The Toughest, Quickest, Safest Line Stretcher on the Block"
+          p="Family-owned Masonry Tool"
           target="_blank"
           rel="noopener noreferrer nofollow"
         />
@@ -155,7 +155,7 @@ function Projects() {
           rel="noopener noreferrer"
         />
       </div>
-
+       <hr />
       <h1 className="sectionTitle">Nucamp React Website</h1>
       <div className={styles.projectMain}>
         <div>
