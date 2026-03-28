@@ -110,3 +110,20 @@
     }
   }
   
+/* --- VIEW TRANSITIONS API: THEME RIPPLE --- */
+/* Disable the default crossfade */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Keep the old theme underneath */
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+/* Put the new expanding theme on top */
+::view-transition-new(root) {
+  z-index: 2;
+}

@@ -55,3 +55,16 @@
 }
 
 
+
+/* --- SKILLS MICRO-INTERACTIONS --- */
+.skillList > span {
+  /* This specific curve creates a slight elastic "bounce" */
+  transition: transform 0.3s cubic-bezier(0.17, 0.89, 0.32, 1.27); 
+  cursor: default;
+  will-change: transform;
+}
+
+.skillList > span:hover {
+  transform: scale(1.1) translateY(-2px);
+  /* Optionally add a glow or color change here */
+}

@@ -76,3 +76,15 @@ input[type='submit']{
         width: 800px;
     }
   }
+/* --- ACCESSIBLE FOCUS STATES (WCAG) --- */
+input:not([type='submit']), textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+/* Enterprise-grade focus ring */
+input:not([type='submit']):focus, textarea:focus {
+  border-color: var(--btn-color);
+  /* Creates a soft glowing ring around the active input */
+  box-shadow: 0 0 0 4px rgba(9, 135, 242, 0.15); 
+}

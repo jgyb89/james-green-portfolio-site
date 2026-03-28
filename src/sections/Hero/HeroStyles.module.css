@@ -103,3 +103,33 @@
     }
   }
 }
+
+/* --- HERO CHOREOGRAPHY & MICRO-INTERACTIONS --- */
+@keyframes fadeSlideRight {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeSlideLeft {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Staggered entrance for text elements */
+.info h1 { animation: fadeSlideRight 0.8s cubic-bezier(0.1, 1, 0.36, 1) backwards; animation-delay: 0.1s; }
+.info h2 { animation: fadeSlideRight 0.8s cubic-bezier(0.1, 1, 0.36, 1) backwards; animation-delay: 0.2s; }
+.info span { animation: fadeSlideRight 0.8s cubic-bezier(0.1, 1, 0.36, 1) backwards; animation-delay: 0.3s; }
+.info p { animation: fadeSlideRight 0.8s cubic-bezier(0.1, 1, 0.36, 1) backwards; animation-delay: 0.4s; }
+.info a { animation: fadeSlideRight 0.8s cubic-bezier(0.1, 1, 0.36, 1) backwards; animation-delay: 0.5s; }
+
+/* Image entrance */
+.colorModeContainer { animation: fadeSlideLeft 0.8s cubic-bezier(0.1, 1, 0.36, 1) backwards; animation-delay: 0.2s; }
+
+/* Smooth spring rotation for the dark mode toggle */
+.colorMode {
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  will-change: transform;
+}
+.colorMode:hover {
+  transform: rotate(90deg) scale(1.15) !important;
+}
