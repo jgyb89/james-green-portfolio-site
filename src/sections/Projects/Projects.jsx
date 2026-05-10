@@ -3,11 +3,30 @@ import { createPortal } from "react-dom";
 import styles from "./ProjectsStyles.module.css";
 import ProjectCard from "../../common/ProjectCard";
 import ProjectModal from "../../common/ProjectModal";
+
+// Goodrep Projects
 import goodrep from "../../assets/goodrep-media-site-sample.webp";
-import abodeHome from "../../assets/abode-home-services-sample.webp";
+import goodrepProject01 from "../../assets/goodrep-media-site-sample-01.webp.jpg";
+import goodrepProject02 from "../../assets/goodrep-media-site-sample-02.webp.jpg";
+import goodrepProject03 from "../../assets/goodrep-media-site-sample-03.webp.jpg";
+
+// CCR Projects
+import capeCoralReviewed from "../../assets/ccr-project-thumbnail.jpg";
+import capeCoralProject01 from "../../assets/ccr-project-sample-01.jpg";
+import capeCoralProject02 from "../../assets/ccr-project-sample-02.jpg";
+import capeCoralProject03 from "../../assets/ccr-project-sample-03.jpg";
+
+// Vibe Projects
 import vibe from "../../assets/vibe-website-sample.jpg";
-import jag from "../../assets/jagclamp-website-sample.jpg";
+import vibeProject01 from "../../assets/vibe-project-sample-01.jpg";
+import vibeProject02 from "../../assets/vibe-project-sample-02.jpg";
+import vibeProject03 from "../../assets/vibe-project-sample-03.jpg";
+
+// Be Balanced Projects
 import bebalanced from "../../assets/be-balanced-bodyworks-portfolio.jpg";
+import bebalancedProject01 from "../../assets/be-balanced-project-snapshot-01.jpg";
+import bebalancedProject02 from "../../assets/be-balanced-project-snapshot-02.jpg";
+import bebalancedProject03 from "../../assets/be-balanced-project-snapshot-03.jpg";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,9 +37,31 @@ gsap.registerPlugin(ScrollTrigger);
 const projectData = [
   {
     id: 1,
+    title: "Cape Coral Reviewed",
+    thumbnail: capeCoralReviewed,
+    modalGallery: [
+      capeCoralReviewed,
+      capeCoralProject02,
+      capeCoralProject01,
+      capeCoralProject03,
+    ],
+    highlights: [
+      "Developed user-focused layouts that simplified navigation for professional service seekers",
+      "Iterated on designs in collaboration with stakeholders to align web goals with core business objectives",
+      "Maintained a clean, maintainable codebase to ensure long-term site stability and ease of updates",
+    ],
+    link: "https://abode-services.com/",
+  },
+  {
+    id: 2,
     title: "Be Balanced Bodyworks",
     thumbnail: bebalanced,
-    modalImage: bebalanced,
+    modalGallery: [
+      bebalanced,
+      bebalancedProject01,
+      bebalancedProject02,
+      bebalancedProject03,
+    ],
     highlights: [
       "Spearheaded a mobile-first UX redesign that drove a 345% increase in organic active users",
       "Architected custom landing pages using semantic HTML5 and CSS to optimize conversion funnels",
@@ -30,10 +71,15 @@ const projectData = [
     link: "https://www.bebalancedgr.com/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Goodrep Media Website Redesign",
     thumbnail: goodrep,
-    modalImage: goodrep,
+    modalGallery: [
+      goodrep,
+      goodrepProject01,
+      goodrepProject03,
+      goodrepProject02,
+    ],
     highlights: [
       "Translated high-fidelity Figma wireframes into high-performance, pixel-perfect web components",
       "Led end-to-end development of custom CMS templates using scalable HTML5, CSS3, and JavaScript",
@@ -43,40 +89,16 @@ const projectData = [
     link: "https://goodrep.media/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Vibe by California",
     thumbnail: vibe,
-    modalImage: vibe,
+    modalGallery: [vibe, vibeProject01, vibeProject02, vibeProject03],
     highlights: [
       "Managed the end-to-end digital content lifecycle for a high-volume ecommerce platform",
       "Optimized responsive layouts using visual builders to maintain brand consistency across all viewports",
       "Utilized web analytics and data-driven insights to inform structural content updates and UX refinements",
     ],
     link: "https://www.vibebycalifornia.com/",
-  },
-  {
-    id: 4,
-    title: "JagClamp",
-    thumbnail: jag,
-    modalImage: jag,
-    highlights: [
-      "Designed and built a visually compelling marketing site for an innovative industrial product",
-      "Created custom interactive UI elements to effectively showcase complex product utility and features",
-      "Focused on rapid-loading performance and responsive design principles to engage niche audiences",
-    ],
-    link: "https://jagclamp.com/",
-  },
-  {
-    id: 5,
-    title: "Abode Services",
-    thumbnail: abodeHome,
-    modalImage: abodeHome,
-    highlights: [
-      "Developed user-focused layouts that simplified navigation for professional service seekers",
-      "Iterated on designs in collaboration with stakeholders to align web goals with core business objectives",
-      "Maintained a clean, maintainable codebase to ensure long-term site stability and ease of updates",
-    ],
-    link: "https://abode-services.com/",
   },
 ];
 
