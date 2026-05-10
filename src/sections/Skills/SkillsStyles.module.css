@@ -1,70 +1,61 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+
+  span {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 100px 0;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
 
-    span {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    img{
-        width: 20px;
-    }
-
-    .skillList{
-        display: flex;
-        justify-content: space-evenly;
-        align-self: center;
-        flex-wrap: wrap;
-        row-gap: 40px;
-        max-width: 32ch;
-    }
-
-    hr {
-        width: 100px;
-        height: 1px;
-        border: none;
-        background-color: var(--text-color);
-        align-self: center;
-        margin: 50px;
-    }
-
-    @media (width >= 800px) {
-        .skillList {
-            max-width: fit-content;
-            gap: 30px;
-    
-            p {
-                font-size: 20px;
-            }
-    
-        }
-
-        hr {
-            width: 300px;
-        }
-
-        .container {
-            margin: 100px 0;
-    }
+  img {
+    width: 20px;
+  }
 }
 
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  padding: 40px 0;
 }
 
+.marqueeTrack {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: scrollMarquee 35s linear infinite;
+}
 
+.skillGroup {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 50px;
+  padding-right: 50px;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 /* --- SKILLS MICRO-INTERACTIONS --- */
-.skillList > span {
+.skillGroup > span {
   /* This specific curve creates a slight elastic "bounce" */
-  transition: transform 0.3s cubic-bezier(0.17, 0.89, 0.32, 1.27); 
+  transition: transform 0.3s cubic-bezier(0.17, 0.89, 0.32, 1.27);
   cursor: default;
   will-change: transform;
 }
 
-.skillList > span:hover {
+.skillGroup > span:hover {
   transform: scale(1.1) translateY(-2px);
-  /* Optionally add a glow or color change here */
 }

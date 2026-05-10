@@ -1,180 +1,127 @@
-/* image imports */
+import { useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import styles from "./ProjectsStyles.module.css";
-import xora from "../../assets/xora-screen.jpg";
-import brainwave from "../../assets/brainwave-screen.jpg";
-import hoobank from "../../assets/hoobank-screen.jpg";
 import ProjectCard from "../../common/ProjectCard";
+import ProjectModal from "../../common/ProjectModal";
 import goodrep from "../../assets/goodrep-media-site-sample.webp";
 import abodeHome from "../../assets/abode-home-services-sample.webp";
 import vibe from "../../assets/vibe-website-sample.jpg";
 import jag from "../../assets/jagclamp-website-sample.jpg";
-import nucamp from "../../assets/nucamp-website-sample.jpg";
 import bebalanced from "../../assets/be-balanced-bodyworks-portfolio.jpg";
 
-/* icon imports */
-import reactLight from "../../assets/react-solid-light.svg";
-import reactDark from "../../assets/react-solid-dark.svg";
-import jsLight from "../../assets/js-solid-light.svg";
-import jsDark from "../../assets/js-solid-dark.svg";
-import wordPressLight from "../../assets/wordpress-logo-light.svg";
-import wordPressDark from "../../assets/wordpress-logo-dark.svg";
-import bootstrapLight from "../../assets/bootstrap-solid-light.svg";
-import bootstrapDark from "../../assets/bootstrap-solid-dark.svg";
-import windowLight from "../../assets/new-window-icon-light.svg";
-import newWindowDark from "../../assets/new-window-icon-dark.svg";
-import { useTheme } from "../../common/ThemeContex";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const projectData = [
+  {
+    id: 1,
+    title: "Be Balanced Bodyworks",
+    thumbnail: bebalanced,
+    modalImage: bebalanced,
+    highlights: [
+      "Architected Custom CMS Landing Pages",
+      "Led a Mobile-First HTML/CSS Transformation",
+      "Implemented Technical SEO & Tag Management",
+      "Optimized UX Funnels for Booking Conversions",
+      "Drove a 345% Increase in Organic Traffic",
+    ],
+    link: "https://www.bebalancedgr.com/",
+  },
+  {
+    id: 2,
+    title: "Goodrep Media Website Redesign",
+    thumbnail: goodrep,
+    modalImage: goodrep,
+    highlights: [
+      "Translated Figma Designs to CMS Templates",
+      "Engineered Custom HTML5 & Scalable CSS",
+      "Ensured Strict WCAG Accessibility Compliance",
+    ],
+    link: "https://goodrep.media/",
+  },
+  {
+    id: 3,
+    title: "Vibe by California",
+    thumbnail: vibe,
+    modalImage: vibe,
+    highlights: ["High-Volume CMS Ecommerce Management"],
+    link: "https://www.vibebycalifornia.com/",
+  },
+  {
+    id: 4,
+    title: "JagClamp",
+    thumbnail: jag,
+    modalImage: jag,
+    highlights: ["New Invention Masonry Tool Promotion"],
+    link: "https://jagclamp.com/",
+  },
+  {
+    id: 5,
+    title: "Abode Services",
+    thumbnail: abodeHome,
+    modalImage: abodeHome,
+    highlights: ["Home Help Solutions"],
+    link: "https://abode-services.com/",
+  },
+];
 
 function Projects() {
-  const { theme } = useTheme();
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const reactIcon = theme === "light" ? reactLight : reactDark;
-  const jsIcon = theme === "light" ? jsLight : jsDark;
-  const bootstrap = theme === "light" ? bootstrapLight : bootstrapDark;
-  const wordPress = theme === "light" ? wordPressLight : wordPressDark;
-  const newWindow = theme === "light" ? windowLight : newWindowDark;
+  useGSAP(
+    () => {
+      const track = trackRef.current;
+      const section = sectionRef.current;
+
+      gsap.to(track, {
+        x: () => -(track.scrollWidth - track.parentElement.offsetWidth),
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          pin: true,
+          scrub: 1,
+          start: "top 50px",
+          end: () => `+=${track.scrollWidth}`,
+          invalidateOnRefresh: true,
+          pinSpacing: true,
+        },
+      });
+    },
+    { scope: sectionRef },
+  );
 
   return (
-    <section id="projects" className={styles.container}>
-      <h1 className="sectionTitle">Wordpress Projects</h1>
-      <div className={styles.projectMain}>
-        <div>
-          <div className={styles.toolIcon}>
-            <img src={wordPress} />
-          </div>
-          <h2>Be Balanced Bodyworks</h2>
-          <div className={styles.list}>
-            <p>Architected Custom CMS Landing Pages</p>
-            <p>Led a Mobile-First HTML/CSS Transformation</p>
-            <p>Implemented Technical SEO & Tag Management</p>
-            <p>Optimized UX Funnels for Booking Conversions</p>
-            <p>Drove a 345% Increase in Organic Traffic</p>
-          </div>
-        </div>
-
-        <div className={styles.projectsReact}>
-          <ProjectCard
-            src={bebalanced}
-            link={"https://www.bebalancedgr.com/"}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          />
-        </div>
-      </div>
-      <hr />
-      <div className={styles.projectMain}>
-        <div>
-          <div className={styles.toolIcon}>
-            <img src={wordPress} />
-          </div>
-          <h2>Goodrep Media Website Redesign</h2>
-          <div className={styles.list}>
-            <a
-              target="_blank"
-              href="https://www.figma.com/design/inTDrKhaUFbmgFPU91fKu1/Good-Rep-Website?node-id=0-1&t=HItKbCRQXxtWGoyK-1"
-            >
-              <p className={styles.openNew}>
-                Figma Design <img src={newWindow} />
-              </p>
-            </a>
-            <p>Translated Figma Designs to CMS Templates</p>
-            <p>Engineered Custom HTML5 & Scalable CSS</p>
-            <p>Ensured Strict WCAG Accessibility Compliance</p>
+    <div className="projects-wrapper" style={{ width: "100%", minWidth: 0 }}>
+      <section id="projects" className={styles.container} ref={sectionRef}>
+        <h1 className="sectionTitle">Projects</h1>
+        <div className={styles.galleryContainer}>
+          <div className={styles.galleryTrack} ref={trackRef}>
+            {projectData.map((project) => (
+              <ProjectCard
+                key={project.id}
+                src={project.thumbnail}
+                h3={project.title}
+                p={project.highlights[0]}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
           </div>
         </div>
-        <div className={styles.projectsReact}>
-          <ProjectCard
-            src={goodrep}
-            link={"https://goodrep.media/"}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          />
-        </div>
-      </div>
-
-      <hr />
-      <div className={styles.projectsContainer}>
-        <ProjectCard
-          src={vibe}
-          link={"https://www.vibebycalifornia.com/"}
-          h3="Vibe by California"
-          p="High-Volume CMS Ecommerce Management"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-        />
-        <ProjectCard
-          src={jag}
-          link={"https://jagclamp.com/"}
-          h3="JagClamp"
-          p="New Invention Masonry Tool Promotion"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-        />
-        <ProjectCard
-          src={abodeHome}
-          link={"https://abode-services.com/"}
-          h3="Abode Services"
-          p="Home Help Solutions"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-        />
-      </div>
-      <hr />
-      <h1 className="sectionTitle">React UI Projects</h1>
-      <div className={styles.projectsContainer}>
-        <ProjectCard
-          src={xora}
-          link={"https://xora-sass-app.netlify.app/"}
-          h3="Xora"
-          p="SaaS Landing Page"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <ProjectCard
-          src={brainwave}
-          link={"https://brainwavejg.netlify.app/"}
-          h3="Brainwave"
-          p="Open AI chat app"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <ProjectCard
-          src={hoobank}
-          link={"https://hoobank-jg.netlify.app/"}
-          h3="Hoobank"
-          p="Banking App"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-      </div>
-      <hr />
-      <h1 className="sectionTitle">Nucamp React Website</h1>
-      <div className={styles.projectMain}>
-        <div>
-          <div className={styles.toolIcon}>
-            <img src={reactIcon} />
-            <img src={jsIcon} />
-            <img src={bootstrap} />
-          </div>
-          <h2>React Redux App</h2>
-          <div className={styles.list}>
-            <p>Redux Toolkit</p>
-            <p>Hooks and Function Components</p>
-            <p>Organized Git Version Control</p>
-            <p>Login Function</p>
-            <p>Comment Form with Validation</p>
-          </div>
-        </div>
-        <div className={styles.projectsReact}>
-          <ProjectCard
-            src={nucamp}
-            link={"https://jg-react-nucampsite.netlify.app/"}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          />
-        </div>
-      </div>
-      <hr />
-    </section>
+        {selectedProject &&
+          createPortal(
+            <ProjectModal
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />,
+            document.body,
+          )}
+      </section>
+    </div>
   );
 }
 
