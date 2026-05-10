@@ -22,11 +22,10 @@ const projectData = [
     thumbnail: bebalanced,
     modalImage: bebalanced,
     highlights: [
-      "Architected Custom CMS Landing Pages",
-      "Led a Mobile-First HTML/CSS Transformation",
-      "Implemented Technical SEO & Tag Management",
-      "Optimized UX Funnels for Booking Conversions",
-      "Drove a 345% Increase in Organic Traffic",
+      "Spearheaded a mobile-first UX redesign that drove a 345% increase in organic active users",
+      "Architected custom landing pages using semantic HTML5 and CSS to optimize conversion funnels",
+      "Boosted Google Lighthouse scores from below 60 to 90+ through technical SEO and performance tuning",
+      "Engineered state-aware CTA interactions to reduce bounce rates and improve user retention",
     ],
     link: "https://www.bebalancedgr.com/",
   },
@@ -36,9 +35,10 @@ const projectData = [
     thumbnail: goodrep,
     modalImage: goodrep,
     highlights: [
-      "Translated Figma Designs to CMS Templates",
-      "Engineered Custom HTML5 & Scalable CSS",
-      "Ensured Strict WCAG Accessibility Compliance",
+      "Translated high-fidelity Figma wireframes into high-performance, pixel-perfect web components",
+      "Led end-to-end development of custom CMS templates using scalable HTML5, CSS3, and JavaScript",
+      "Ensured 100% WCAG accessibility compliance and cross-browser compatibility across all site modules",
+      "Collaborated with marketing stakeholders to establish a modern, cohesive brand identity through code",
     ],
     link: "https://goodrep.media/",
   },
@@ -47,7 +47,11 @@ const projectData = [
     title: "Vibe by California",
     thumbnail: vibe,
     modalImage: vibe,
-    highlights: ["High-Volume CMS Ecommerce Management"],
+    highlights: [
+      "Managed the end-to-end digital content lifecycle for a high-volume ecommerce platform",
+      "Optimized responsive layouts using visual builders to maintain brand consistency across all viewports",
+      "Utilized web analytics and data-driven insights to inform structural content updates and UX refinements",
+    ],
     link: "https://www.vibebycalifornia.com/",
   },
   {
@@ -55,7 +59,11 @@ const projectData = [
     title: "JagClamp",
     thumbnail: jag,
     modalImage: jag,
-    highlights: ["New Invention Masonry Tool Promotion"],
+    highlights: [
+      "Designed and built a visually compelling marketing site for an innovative industrial product",
+      "Created custom interactive UI elements to effectively showcase complex product utility and features",
+      "Focused on rapid-loading performance and responsive design principles to engage niche audiences",
+    ],
     link: "https://jagclamp.com/",
   },
   {
@@ -63,7 +71,11 @@ const projectData = [
     title: "Abode Services",
     thumbnail: abodeHome,
     modalImage: abodeHome,
-    highlights: ["Home Help Solutions"],
+    highlights: [
+      "Developed user-focused layouts that simplified navigation for professional service seekers",
+      "Iterated on designs in collaboration with stakeholders to align web goals with core business objectives",
+      "Maintained a clean, maintainable codebase to ensure long-term site stability and ease of updates",
+    ],
     link: "https://abode-services.com/",
   },
 ];
