@@ -1,5 +1,5 @@
 .card {
-  flex: 0 0 550px;
+  flex: 0 0 750px;
   text-align: left;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -8,7 +8,7 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 400px;
   overflow: hidden;
   border-radius: 20px;
   margin-bottom: 20px;

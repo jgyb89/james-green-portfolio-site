@@ -45,12 +45,20 @@
 .leftColumn {
   flex: 1;
   background-color: #f0f0f0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+}
+
+.leftColumn::-webkit-scrollbar {
+  display: none;
 }
 
 .leftColumn img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 .rightColumn {
