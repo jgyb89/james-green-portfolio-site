@@ -46,11 +46,11 @@ const projectData = [
       capeCoralProject03,
     ],
     highlights: [
-      "Developed user-focused layouts that simplified navigation for professional service seekers",
-      "Iterated on designs in collaboration with stakeholders to align web goals with core business objectives",
-      "Maintained a clean, maintainable codebase to ensure long-term site stability and ease of updates",
+      "Architected a scalable, headless WordPress directory application using Next.js to support a high-performance multi-city rollout",
+      "Led the UI/UX design process, translating high-fidelity wireframes into responsive, intuitive web experiences",
+      "Collaborated cross-functionally to align user needs with business goals, writing clean, maintainable code to ensure long-term site stability",
     ],
-    link: "https://abode-services.com/",
+    link: "https://cape-coral-reviewed.vercel.app/en",
   },
   {
     id: 2,
