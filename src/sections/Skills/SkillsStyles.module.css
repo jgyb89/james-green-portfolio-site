@@ -24,6 +24,13 @@
   padding: 40px 0;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.marqueeWrapper.isGrabbing {
+  cursor: grabbing;
 }
 
 .marqueeWrapper::-webkit-scrollbar {
@@ -34,6 +41,7 @@
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
+  pointer-events: auto;
 }
 
 .skillGroup {
@@ -42,13 +50,14 @@
   align-items: center;
   gap: 50px;
   padding-right: 50px;
+  pointer-events: auto;
 }
 
 /* --- SKILLS MICRO-INTERACTIONS --- */
 .skillGroup > span {
   /* This specific curve creates a slight elastic "bounce" */
   transition: transform 0.3s cubic-bezier(0.17, 0.89, 0.32, 1.27);
-  cursor: default;
+  cursor: inherit;
   will-change: transform;
 }
 
