@@ -1,5 +1,5 @@
 .card {
-  flex: 0 0 750px;
+  width: 100%;
   text-align: left;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -8,12 +8,12 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: auto;
   overflow: hidden;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  border-radius: 16px;
+  margin-bottom: 16px;
   background-color: var(--project-card-bg);
-  border: 1px solid #ddd;
+  border: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 .imageWrapper img {
@@ -21,6 +21,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  display: block;
 }
 
 .viewButton {
@@ -42,7 +43,7 @@
 }
 
 .card:hover .imageWrapper img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .card:hover .viewButton {
@@ -50,11 +51,12 @@
 }
 
 .card h3 {
-  font-size: 24px;
-  margin-bottom: 5px;
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
 .card p {
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 1.5;
   color: var(--footer-text-color);
 }

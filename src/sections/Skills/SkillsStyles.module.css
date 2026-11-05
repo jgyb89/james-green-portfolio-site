@@ -19,16 +19,21 @@
 
 .marqueeWrapper {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
   display: flex;
   padding: 40px 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.marqueeWrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .marqueeTrack {
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
-  animation: scrollMarquee 35s linear infinite;
 }
 
 .skillGroup {
@@ -37,15 +42,6 @@
   align-items: center;
   gap: 50px;
   padding-right: 50px;
-}
-
-@keyframes scrollMarquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 /* --- SKILLS MICRO-INTERACTIONS --- */

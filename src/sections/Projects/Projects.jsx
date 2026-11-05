@@ -102,29 +102,76 @@ const projectData = [
   },
 ];
 
+const otherWordpressProjects = [
+  {
+    name: "Homeowner Help Options",
+    url: "https://homeownerhelpoptions.com/",
+    domain: "homeownerhelpoptions.com",
+  },
+  {
+    name: "Abode Services",
+    url: "https://abode-services.com/",
+    domain: "abode-services.com",
+  },
+  {
+    name: "Validiform",
+    url: "https://validiform.com/",
+    domain: "validiform.com",
+  },
+  {
+    name: "California Wildfire Help",
+    url: "https://californiawildfirehelp.org/",
+    domain: "californiawildfirehelp.org",
+  },
+  {
+    name: "ECS Partner Trifecta",
+    url: "https://ecspartnertrifecta.com/",
+    domain: "ecspartnertrifecta.com",
+  },
+  {
+    name: "The Tax Axe",
+    url: "https://thetaxaxe.org/",
+    domain: "thetaxaxe.org",
+  },
+];
+
 function Projects() {
   const sectionRef = useRef(null);
-  const trackRef = useRef(null);
+  const gridRef = useRef(null);
+  const otherSectionRef = useRef(null);
   const [selectedProject, setSelectedProject] = useState(null);
 
   useGSAP(
     () => {
-      const track = trackRef.current;
-      const section = sectionRef.current;
+      const cards = gsap.utils.toArray(`.${styles.projectCardItem}`);
 
-      gsap.to(track, {
-        x: () => -(track.scrollWidth - track.parentElement.offsetWidth),
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          pin: true,
-          scrub: 1,
-          start: "top 50px",
-          end: () => `+=${track.scrollWidth}`,
-          invalidateOnRefresh: true,
-          pinSpacing: true,
-        },
+      cards.forEach((card) => {
+        gsap.from(card, {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        });
       });
+
+      if (otherSectionRef.current) {
+        gsap.from(otherSectionRef.current, {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: otherSectionRef.current,
+            start: "top 88%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
     },
     { scope: sectionRef },
   );
@@ -132,20 +179,60 @@ function Projects() {
   return (
     <div className="projects-wrapper" style={{ width: "100%", minWidth: 0 }}>
       <section id="projects" className={styles.container} ref={sectionRef}>
-        <h1 className="sectionTitle">Projects</h1>
-        <div className={styles.galleryContainer}>
-          <div className={styles.galleryTrack} ref={trackRef}>
-            {projectData.map((project) => (
+        <h1 className={`sectionTitle ${styles.sectionTitle}`}>Projects</h1>
+
+        <div className={styles.projectsGrid} ref={gridRef}>
+          {projectData.map((project) => (
+            <div key={project.id} className={styles.projectCardItem}>
               <ProjectCard
-                key={project.id}
                 src={project.thumbnail}
                 h3={project.title}
                 p={project.highlights[0]}
                 onClick={() => setSelectedProject(project)}
               />
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+
+        {/* Other WordPress Projects */}
+        <div className={styles.otherProjectsContainer} ref={otherSectionRef}>
+          <h2 className={styles.otherProjectsTitle}>Other WordPress Projects</h2>
+          <ul className={styles.otherProjectsList}>
+            {otherWordpressProjects.map((site) => (
+              <li key={site.url} className={styles.otherProjectItem}>
+                <a
+                  href={site.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.otherProjectLink}
+                >
+                  <div className={styles.otherProjectInfo}>
+                    <span className={styles.otherProjectName}>{site.name}</span>
+                    <span className={styles.otherProjectDomain}>{site.domain}</span>
+                  </div>
+                  <svg
+                    className={styles.externalIcon}
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Project Modal */}
         {selectedProject &&
           createPortal(
             <ProjectModal
