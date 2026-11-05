@@ -106,12 +106,15 @@
   border-radius: 40px;
   font-weight: 700;
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   width: fit-content;
 }
 
-.viewWebsite:hover {
+.viewWebsite:hover,
+.viewWebsite:focus,
+.viewWebsite:active {
   transform: scale(1.05);
+  color: var(--btn-text-color);
 }
 
 @media (max-width: 800px) {
